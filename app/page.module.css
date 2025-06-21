@@ -1,0 +1,15 @@
+.container {
+  width: 100%;
+  max-width: 600px; /* максимум для мобильных и планшетов */
+  margin: 0 auto; /* центрируем */
+  padding: 0 15px; /* отступы слева и справа */
+  box-sizing: border-box; /* чтобы padding учитывался в ширине */
+}
+
+/* На больших экранах расширяем контейнер */
+@media (min-width: 768px) {
+  .container {
+    max-width: 1200px; /* для десктопов */
+    padding: 0 20px;
+  }
+}

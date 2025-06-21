@@ -1,0 +1,19 @@
+/* Общие переменные для темы */
+:root {
+  --footer-bg-color: #f0f0f0;
+  --footer-text-color: #333;
+}
+
+body.dark-theme {
+  --footer-bg-color: #222;
+  --footer-text-color: #eee;
+}
+
+.footer {
+  background-color: var(--footer-bg-color, #222);
+  color: var(--footer-text-color, #eee);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+}

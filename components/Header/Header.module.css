@@ -1,0 +1,147 @@
+/* ===== Header Base ===== */
+.header {
+  background: #222;
+  color: white;
+  padding: 16px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ===== Top row: логотип + меню или кнопки ===== */
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+}
+
+/* ===== Навигация ===== */
+.navigation {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block; /* мобильное меню вертикальное */
+}
+
+.navigation li {
+  margin: 12px 0; /* отступы между пунктами в столбик */
+}
+
+.navigation li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ===== Кнопки бургер и поиска ===== */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.iconButton {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== Мобильное меню (выезжающее справа) ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100%;
+  width: 250px;
+  background: #333;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  padding: 60px 20px 20px;
+}
+
+.open {
+  right: 0;
+}
+
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== Форма поиска ===== */
+.searchForm {
+  position: relative;
+  margin-top: 10px;
+  display: none; /* по умолчанию скрыта, показываем по условию */
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 36px 10px 12px; /* справа место для кнопки очистки */
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.clearButton {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ===== Класс для отображения поиска на мобилке ===== */
+.show {
+  display: flex !important;
+}
+
+/* ===== Десктопные стили ===== */
+@media (min-width: 768px) {
+  /* Скрываем кнопки бургер и поиска */
+  .iconButton {
+    display: none;
+  }
+
+  /* Меню — горизонтальное, в строку справа */
+  .navigation {
+    display: flex;
+    gap: 20px;
+  }
+
+  .navigation li {
+    margin: 0;
+  }
+
+  /* Меню мобильное скрываем */
+  .nav {
+    display: none;
+  }
+
+  /* Показываем поиск под меню */
+  .searchForm {
+    display: flex !important;
+    margin-top: 20px;
+  }
+}

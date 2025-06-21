@@ -21,7 +21,7 @@ export default function Home() {
       return;
     }
 
-    fetch("https://your-api.com/auth", {
+    fetch("https://taurus.pp.ua/auth", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ initData }),

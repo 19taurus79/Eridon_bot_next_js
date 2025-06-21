@@ -17,7 +17,7 @@ export default function Header() {
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Search:", searchValue);
   };

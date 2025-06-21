@@ -3,7 +3,7 @@ import css from "./page.module.css";
 
 import { useEffect, useState } from "react";
 type TelegramUser = {
-  id: number;
+  telegram_id: number;
   first_name: string;
   last_name?: string;
   username?: string;
@@ -45,7 +45,8 @@ export default function Home() {
   return (
     <div className={css.container}>
       <h1>Home</h1>
-      {user && <p>Ваш Telegram ID: {user.id}</p>}
+      {user && <p>Ваш Telegram ID: {user.telegram_id}</p>}
+      {user && <p>Ваш Username: {user.username}</p>}
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ex
         sapiente perferendis illum, velit culpa saepe architecto suscipit eius

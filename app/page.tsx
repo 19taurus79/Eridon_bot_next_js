@@ -4,7 +4,7 @@ import css from "./page.module.css";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState(null);
   const [error, setError] = useState<string>("");
 
   useEffect(() => {

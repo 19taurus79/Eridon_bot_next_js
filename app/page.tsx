@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className={css.container}>
       <h1>Home</h1>
-      <p>Ваш Telegram ID: {user.id}</p>
+      {user && <p>Ваш Telegram ID: {user.id}</p>}
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ex
         sapiente perferendis illum, velit culpa saepe architecto suscipit eius

@@ -2,9 +2,15 @@
 import css from "./page.module.css";
 
 import { useEffect, useState } from "react";
-
+type TelegramUser = {
+  id: number;
+  first_name: string;
+  last_name?: string;
+  username?: string;
+  is_premium?: boolean;
+};
 export default function Home() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<TelegramUser | null>(null);
   const [error, setError] = useState<string>("");
 
   useEffect(() => {

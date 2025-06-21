@@ -15,7 +15,7 @@ export default function Home() {
 
   useEffect(() => {
     const initData = window.Telegram?.WebApp?.initData;
-
+    console.log("initdata :", initData);
     if (!initData) {
       setError("Не удалось получить initData от Telegram");
       return;

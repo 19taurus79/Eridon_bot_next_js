@@ -1,8 +1,45 @@
+"use client";
 import css from "./page.module.css";
+
+import { useEffect, useState } from "react";
+
 export default function Home() {
+  const [user, setUser] = useState<any>(null);
+  const [error, setError] = useState<string>("");
+
+  useEffect(() => {
+    const initData = window.Telegram?.WebApp?.initData;
+
+    if (!initData) {
+      setError("Не удалось получить initData от Telegram");
+      return;
+    }
+
+    fetch("https://your-api.com/auth", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ initData }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Ошибка авторизации");
+        return res.json();
+      })
+      .then((user) => {
+        setUser(user);
+      })
+      .catch((err) => {
+        console.error("Auth error:", err);
+        setError("Ошибка авторизации");
+      });
+  }, []);
+
+  if (error) return <div>{error}</div>;
+  if (!user) return <div>Загрузка...</div>;
+
   return (
     <div className={css.container}>
       <h1>Home</h1>
+      <p>Ваш Telegram ID: {user.id}</p>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ex
         sapiente perferendis illum, velit culpa saepe architecto suscipit eius

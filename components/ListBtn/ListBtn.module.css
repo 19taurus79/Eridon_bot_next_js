@@ -9,12 +9,12 @@
 
 .listItem {
   padding: 8px 16px;
-  background-color: var(--bg-color);
-  border: 1px solid var(--border-color);
+  background-color: var(--button-bg);
+  border: 1px solid var(--button-border);
   border-radius: 9999px;
   cursor: pointer;
   user-select: none;
-  color: var(--text-color);
+  color: var(--button-text);
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
@@ -22,11 +22,11 @@
 }
 
 .listItem:hover {
-  background-color: var(--hover-bg-color);
+  background-color: var(--button-hover-bg);
 }
 
 .listItem.active {
-  background-color: var(--primary-color);
-  color: var(--primary-text-color);
-  border-color: var(--primary-color);
+  background-color: var(--button-active-bg);
+  color: var(--button-active-text);
+  border-color: var(--button-active-border);
 }

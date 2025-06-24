@@ -1,12 +1,38 @@
+/* --- Світла тема за замовчуванням --- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Основні кольори для всього додатку */
+  --background-base: #ffffff; /* Білий фон */
+  --foreground-base: #1a1a1a; /* Майже чорний текст */
+
+  /* Кольори для кнопок (listItem) */
+  --button-bg: #f5f5f5; /* Світло-сірий фон кнопки */
+  --button-text: #333333; /* Темний текст кнопки */
+  --button-border: #cccccc; /* Сіра рамка кнопки */
+  --button-hover-bg: #e0e0e0; /* Темніший сірий при наведенні */
+
+  /* Кольори для АКТИВНОЇ кнопки */
+  --button-active-bg: #007bff; /* Яскраво-синій основний колір */
+  --button-active-text: #ffffff; /* Білий текст для активної кнопки */
+  --button-active-border: #007bff; /* Синя рамка для активної кнопки */
 }
 
+/* --- Темна тема (якщо користувач віддає перевагу темній схемі) --- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Основні кольори для всього додатку */
+    --background-base: #1a1a1a; /* Темно-сірий фон */
+    --foreground-base: #e0e0e0; /* Світло-сірий текст */
+
+    /* Кольори для кнопок (listItem) */
+    --button-bg: #333333; /* Темно-сірий фон кнопки */
+    --button-text: #e0e0e0; /* Світлий текст кнопки */
+    --button-border: #555555; /* Темно-сіра рамка кнопки */
+    --button-hover-bg: #4a4a4a; /* Світліший сірий при наведенні */
+
+    /* Кольори для АКТИВНОЇ кнопки */
+    --button-active-bg: #3291ff; /* Трохи яскравіший синій для темної теми */
+    --button-active-text: #ffffff; /* Білий текст для активної кнопки */
+    --button-active-border: #3291ff; /* Синя рамка для активної кнопки */
   }
 }
 
@@ -17,8 +43,8 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--foreground-base);
+  background: var(--background-base);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

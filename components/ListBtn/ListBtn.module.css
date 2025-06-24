@@ -1,0 +1,54 @@
+/* ListAsButtons.module.css */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 24px; /* Отступы сверху/снизу и по бокам, как в контейнере */
+  list-style: none;
+}
+
+.listItem {
+  padding: 8px 16px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-color);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.listItem:hover {
+  background-color: var(--hover-bg-color);
+}
+
+.listItem.active {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  border-color: var(--primary-color);
+}
+
+/* Светлая тема (по умолчанию) */
+:root {
+  --bg-color: white;
+  --text-color: #1f2937; /* gray-800 */
+  --border-color: #ccc;
+  --hover-bg-color: #f0f0f0;
+  --primary-color: #2563eb; /* blue-600 */
+  --primary-text-color: white;
+}
+
+/* Тёмная тема */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1f2937; /* gray-800 */
+    --text-color: white;
+    --border-color: #4b5563; /* gray-600 */
+    --hover-bg-color: #374151; /* gray-700 */
+    --primary-color: #2563eb;
+    --primary-text-color: white;
+  }
+}

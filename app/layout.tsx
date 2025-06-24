@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 // import Footer from "@/components/Footer/Footer";
 import Script from "next/script";
+import { Providers } from "@/components/Providers/Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,9 +35,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Header />
-        {children}
-        {/* <Footer /> */}
+        <Providers>
+          <Header />
+          {children}
+          {/* <Footer /> */}
+        </Providers>
       </body>
     </html>
   );

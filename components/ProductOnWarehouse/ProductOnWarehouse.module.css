@@ -1,0 +1,129 @@
+.buttonListContainer {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* h1 {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 2em;
+} */
+
+.buttonList {
+  list-style: none; /* Убираем стандартные маркеры списка */
+  padding: 0; /* Убираем внутренний отступ списка */
+  margin: 0; /* Убираем внешний отступ списка */
+  display: flex; /* Включаем Flexbox для элементов списка */
+  flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку */
+  gap: 15px; /* Расстояние между кнопками */
+  justify-content: center; /* Центрируем кнопки по горизонтали */
+}
+
+.buttonList li {
+  /* li сам по себе может быть flex-item, но основные стили кнопки применяются к <a> */
+}
+
+.buttonItem {
+  display: block; /* Делаем ссылку блочным элементом, чтобы она занимала всю доступную ширину li и можно было задавать padding */
+  padding: 12px 25px; /* Внутренние отступы кнопки */
+  background-color: #82f5c5; /* Основной цвет фона кнопки */
+  color: rgb(2, 2, 2); /* Цвет текста кнопки */
+  text-decoration: none; /* Убираем подчеркивание у ссылки */
+  border: none; /* Убираем границу */
+  border-radius: 6px; /* Закругленные углы */
+  font-size: 1.1em; /* Размер шрифта */
+  font-weight: bold; /* Жирный шрифт */
+  cursor: pointer; /* Курсор при наведении */
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease; /* Плавные переходы для анимаций */
+  /* white-space: nowrap; Предотвращаем перенос текста на новую строку внутри кнопки */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень для кнопки */
+}
+
+/* Эффекты при наведении */
+.buttonItem:hover {
+  background-color: #4ef42d; /* Цвет фона при наведении */
+  transform: translateY(-2px); /* Слегка поднимаем кнопку */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Увеличиваем тень */
+}
+
+/* Эффекты при активном состоянии (нажатии) */
+.buttonItem:active {
+  background-color: #07e349; /* Более темный цвет при нажатии */
+  transform: translateY(0); /* Возвращаем на место */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Уменьшаем тень */
+}
+
+/* ------------- Вариации кнопок ------------- */
+
+/* Кнопка предупреждения/опасности */
+.buttonItem.button-warning {
+  background-color: #dc3545;
+}
+
+.buttonItem.button-warning:hover {
+  background-color: #c82333;
+}
+
+.buttonItem.button-warning:active {
+  background-color: #bd2130;
+}
+
+/* Отключенная кнопка */
+.buttonItem.button-disabled {
+  background-color: #cccccc; /* Серый фон */
+  color: #666666; /* Темный текст */
+  cursor: not-allowed; /* Курсор "запрещено" */
+  opacity: 0.8; /* Немного прозрачности */
+  pointer-events: none; /* Отключает все события мыши, кнопку нельзя нажать */
+  transform: none; /* Убираем все трансформации */
+  box-shadow: none; /* Убираем тень */
+}
+
+/* Кнопки с разной шириной (пример: если нужно, чтобы они занимали всю ширину) */
+/* .button-list li {
+    width: 100%;
+} */
+
+/* Кнопки в несколько колонок (пример для 2 колонок) */
+/* .button-list li {
+    flex: 1 1 calc(50% - 10px); /* 50% ширины минус половина gap для каждой стороны */
+/* max-width: calc(50% - 10px);
+} */
+
+/* Для 3 колонок */
+/* .button-list li {
+    flex: 1 1 calc(33.333% - 10px);
+    max-width: calc(33.333% - 10px);
+} */
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+  .buttonList {
+    gap: 10px; /* Уменьшаем расстояние для маленьких экранов */
+  }
+  .buttonItem {
+    padding: 10px 20px;
+    font-size: 1em;
+    flex: 1 1 45%; /* Две кнопки в ряд на маленьких экранах */
+    max-width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .buttonList {
+    flex-direction: column; /* Кнопки в одну колонку на очень маленьких экранах */
+    align-items: stretch; /* Растягиваем кнопки на всю ширину */
+  }
+  .buttonItem {
+    width: 100%; /* Занимаем всю доступную ширину */
+    max-width: none;
+  }
+}

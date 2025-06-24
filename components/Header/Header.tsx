@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Header.module.css";
+import FilterButtons from "../CategoryButton/CategoryButton";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,19 +25,27 @@ export default function Header() {
 
   const handleClear = () => setSearchValue("");
 
-  const navLinks = (
+  const navLinks = (onClick?: () => void) => (
     <ul className={styles.navigation}>
       <li>
-        <Link href="/">Home</Link>
+        <Link href="/" onClick={onClick}>
+          Головна
+        </Link>
       </li>
       <li>
-        <Link href="/orders">Заявки</Link>
+        <Link href="/orders" onClick={onClick}>
+          Заявки
+        </Link>
       </li>
       <li>
-        <Link href="/remains">Залишки</Link>
+        <Link href="/remains" onClick={onClick}>
+          Залишки
+        </Link>
       </li>
       <li>
-        <Link href="/">About</Link>
+        <Link href="/" onClick={onClick}>
+          *
+        </Link>
       </li>
     </ul>
   );
@@ -46,7 +55,7 @@ export default function Header() {
       <div className={styles.topRow}>
         <h2 className={styles.logo}>EridonKharkiv</h2>
 
-        {!isMobile && navLinks}
+        {!isMobile && navLinks()}
 
         <div className={styles.actions}>
           {isMobile && (
@@ -72,30 +81,34 @@ export default function Header() {
       </div>
 
       {(searchOpen || !isMobile) && (
-        <form
-          className={`${styles.searchForm} ${
-            !isMobile ? styles.searchDesktop : searchOpen ? styles.show : ""
-          }`}
-          onSubmit={handleSearch}
-        >
-          <input
-            type="text"
-            placeholder="Пошук…"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-            className={styles.searchInput}
-          />
-          {searchValue && (
-            <button
-              type="button"
-              className={styles.clearButton}
-              onClick={handleClear}
-              aria-label="Очистити"
-            >
-              ❌
-            </button>
-          )}
-        </form>
+        <>
+          <form
+            className={`${styles.searchForm} ${
+              !isMobile ? styles.searchDesktop : searchOpen ? styles.show : ""
+            }`}
+            onSubmit={handleSearch}
+          >
+            <input
+              type="text"
+              placeholder="Пошук…"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              className={styles.searchInput}
+            />
+
+            {searchValue && (
+              <button
+                type="button"
+                className={styles.clearButton}
+                onClick={handleClear}
+                aria-label="Очистити"
+              >
+                ❌
+              </button>
+            )}
+          </form>
+          <FilterButtons />
+        </>
       )}
 
       {/* Мобильное меню */}
@@ -108,9 +121,10 @@ export default function Header() {
           >
             ✖
           </button>
-          {navLinks}
+          {navLinks(() => setMenuOpen(false))}
         </nav>
       )}
+      {/* <FilterButtons /> */}
     </header>
   );
 }

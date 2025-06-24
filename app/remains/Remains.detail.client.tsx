@@ -37,7 +37,12 @@ import ListBtn from "@/components/ListBtn/ListBtn";
 //     <ProductOnWarehouse products={products} />
 //   );
 // }
-const RemainsDetail = ({ products }) => {
-  return <ListBtn list={products} getLabel={(product) => product.product} />;
+type Product = {
+  id: string;
+  product: string;
+  line_of_business: string;
+};
+const RemainsDetail = ({ products }: { products: Product[] }) => {
+  return <ListBtn list={products} getLabel={(item) => item.product} />;
 };
 export default RemainsDetail;

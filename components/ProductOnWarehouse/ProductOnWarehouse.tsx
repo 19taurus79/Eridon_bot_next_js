@@ -1,7 +1,16 @@
 "use client";
 // import { getProductOnWarehouse } from "@/lib/api";
 import css from "./ProductOnWarehouse.module.css";
-export default function ProductOnWarehouse({ products }) {
+type Product = {
+  id: string;
+  product: string;
+  line_of_business: string;
+};
+export default function ProductOnWarehouse({
+  products,
+}: {
+  products: Product[];
+}) {
   //   const products = await getProductOnWarehouse();
 
   return (

@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 // import Footer from "@/components/Footer/Footer";
 import Script from "next/script";
 import { Providers } from "@/components/Providers/Providers";
+import { ScrollToTopButton } from "@/components/ScrollToTopButton/ScrollToTopButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           {children}
+          <ScrollToTopButton />
           {/* <Footer /> */}
         </Providers>
       </body>
